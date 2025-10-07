@@ -463,3 +463,5 @@ Su correcta identificación y uso ayuda a construir **modelos conceptuales más 
 ---
 
 ¿Quieres que te haga un ejemplo completo en texto (como un mini diagrama ER con supertipo, subtipos y una relación recursiva) para que veas cómo se representan todos estos conceptos juntos?
+
+## Clase 13
