@@ -11,7 +11,7 @@ monitora kolayap@unal.edu.co sabado 8-9
 - que atributos no se ponen sino hasta en nivel fisico
 - como se escriben las variables en general
 - como es que son las lineas obligatorias opcionales en barker, para repasar
-- 
+- una relacion que atributos lleva
 
 ### Introduccion
 
@@ -245,6 +245,98 @@ desarrolar base de datos para las maquinas y movibles de la universidad
 
 ## Clase 10
 
+🔹 1. MODELO CONCEPTUAL (CDM)
+
+📘 Qué es:
+
+Es el modelo más abstracto. Se centra en las entidades, atributos y relaciones del negocio, sin preocuparse por cómo se implementará en una base de datos real.
+
+
+💡 En PowerDesigner:
+
+Se crea con New → Conceptual Data Model (CDM).
+
+Usa entidades, atributos, relaciones (1:1, 1:N, M:N), cardinalidades y opcionalidad.
+
+🧩 Propósito:
+
+Entender y comunicar la estructura lógica del negocio con lenguaje visual (diagramas ER).
+
+No tiene tipos de datos ni restricciones físicas.
+
+
+✅ Ventajas:
+
+Fácil de entender por usuarios no técnicos.
+
+Detecta errores conceptuales antes de pasar a la parte técnica.
+
+Sirve como documentación funcional del sistema.
+
+
+---
+
+🔹 2. MODELO LÓGICO (LDM)
+
+📘 Qué es:
+
+Representa cómo se organizarán los datos en una base de datos relacional, pero aún sin atarse a un motor específico (ni Access, ni MySQL, etc.).
+
+Aquí las entidades se vuelven tablas y las relaciones se vuelven claves primarias y foráneas.
+
+
+🧩 Lo que contiene:
+
+Tablas, columnas, PK, FK, UK.
+
+Tipos de datos genéricos (por ejemplo, String, Integer, Date).
+
+Relaciones convertidas a claves foráneas.
+
+Normalización de estructuras.
+
+
+✅ Ventajas:
+
+Prepara el diseño para implementarlo en cualquier SGBD.
+
+Permite optimizar estructuras antes de definir detalles físicos.
+
+Mantiene independencia del sistema gestor.
+
+
+---
+
+🔹 3. MODELO FÍSICO (PDM)
+
+📘 Qué es:
+
+Es el modelo técnico real que define exactamente cómo se creará la base de datos en un SGBD específico (MySQL, Access, SQL Server, Oracle, PostgreSQL, etc.).
+
+Aquí el diseño ya está ajustado a las reglas y tipos de datos del motor elegido.
+
+
+🧩 Contiene:
+
+Tipos de datos específicos (INT, VARCHAR(50), DATE, FLOAT...).
+
+Índices, restricciones (CHECK, DEFAULT, NOT NULL), triggers, vistas.
+
+Propiedades de rendimiento (tamaño, relaciones en cascada, etc.).
+
+Código SQL autogenerado.
+
+
+✅ Ventajas:
+
+Se puede exportar directamente a SQL para crear la base de datos.
+
+Permite validar integridad, optimización y compatibilidad con el SGBD.
+
+Representa exactamente cómo funcionará la base de datos en la práctica.
+
+---
+
 **Base de Datos (BD)**
 Conjunto organizado de datos estructurados que se almacenan electrónicamente y se gestionan de forma eficiente.
 
@@ -474,3 +566,8 @@ Su correcta identificación y uso ayuda a construir **modelos conceptuales más 
 ¿Quieres que te haga un ejemplo completo en texto (como un mini diagrama ER con supertipo, subtipos y una relación recursiva) para que veas cómo se representan todos estos conceptos juntos?
 
 ## Clase 13
+
+Repaso conceptos avanzados
+
+## Clase 14
+
