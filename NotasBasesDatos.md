@@ -201,6 +201,15 @@ Campos Redundantes = información repetida innecesariamente en varias tablas (ej
 
 matriz varias entidades
 
+**¿A qué lado se dibuja la línea punteada o sólida?**
+
+Se dibuja del lado de la entidad cuya participación es opcional u obligatoria.
+Es decir:
+
+Si el empleado debe pertenecer a un departamento → línea sólida del lado de Empleado.
+
+Si el departamento puede existir sin empleados → línea punteada del lado de Departamento.
+
 ## Clase 8
 
 La extensión **CDM** en bases de datos se refiere comúnmente al Common Data Model (Modelo de Datos Común)
