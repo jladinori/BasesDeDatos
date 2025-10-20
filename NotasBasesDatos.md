@@ -5,14 +5,6 @@ monitora kolayap@unal.edu.co sabado 8-9
 
 ### Preguntas
 
-- como importar sql a access
-- insert in to en sql
-- que son los identificadores, cuando se escoge entidad relacion
-- que atributos no se ponen sino hasta en nivel fisico
-- como se escriben las variables en general
-- como es que son las lineas obligatorias opcionales en barker, para repasar
-- 
-
 ### Introduccion
 
 **Sistema de gestion de base de datos(SGBD o DBMS ):** Un conjunto de programas de software que permiten definir, crear, manipular y administrar bases de datos, proporcionando una forma estructurada y segura de almacenar y recuperar información.
@@ -98,7 +90,7 @@ Caracteristicas:
 #### SQL
 ![](https://pandorafms.com/blog/wp-content/uploads/2024/02/graph-sqlvsnosql-1.png)
 
-**SQL (Structured Query Language, lenguaje de consulta estructurada):** Es un lenguaje estándar para bases de datos relacionales (RDBMS como Oracle, MySQL, PostgreSQL, SQL Server).
+** (Structured Query Language, lenguaje de consulta estructurada):** Es un lenguaje estándar para bases de datos relacionales (RDBMS como Oracle, My, PostgreSQL, SQL Server).
 
 - Características: Datos en tablas estructuradas con esquemas fijos (columnas definidas). Usa consultas como SELECT, INSERT, JOIN para relacionar tablas.
 - Ventajas: Excelente para transacciones complejas, integridad de datos y consultas relacionales. Ideal para aplicaciones como finanzas, e-commerce o sistemas de gestión donde la consistencia es crucial.
@@ -185,6 +177,7 @@ top down
 
 Modelo Entidad Relacion (barker)
 ![](https://i.ytimg.com/vi/8IwxQqn4FHw/maxresdefault.jpg)
+
 3 partes:
 1. concepto(10)
 Entidad:
@@ -198,17 +191,14 @@ Campos Multivariados = cuando un campo guarda varios valores en un mismo atribut
 
 Campos Redundantes = información repetida innecesariamente en varias tablas (ej. guardar el nombre de la ciudad en cada usuario en lugar de tener una tabla Ciudad).
 
-
-matriz varias entidades
-
 ## Clase 8
 
 La extensión **CDM** en bases de datos se refiere comúnmente al Common Data Model (Modelo de Datos Común)
 
 modelo fisico de access es el modelo de relaciones
 
-Pasos
-0. evaluar el problema
+Pasos 
+- evaluar el problema
 1. posibles entidades
 2. posibles relacion
 3. relaciones, cardinalidad, obligatoriedad
@@ -226,10 +216,8 @@ Pasos
 11. correr script
 
 
-que significa dependencia en modelo de relaciones barker
+que significa dependencia en modelo de relaciones barker?
 dertermina que esto tienen sentido si existen las dos entidades
-
-matriz extendida
 
 tarea: identificar todas las servidumbres o chazas que dominan en la universidad
 desarrolar base de datos para las maquinas y movibles de la universidad
@@ -289,13 +277,13 @@ descargar oracle 11
 
 subir cdm
 matrices en excel del modelo
-documento soporte metodologico}
+documento soporte metodologico
 
 ## Clase 12 Conceptos avanzados
 
 1. Supertipos
 2. Subtipos
-3. Arcos o relaciones exclusivas
+3. Arcos o relaciones exclusivas(regla de tabla, usa constraint, alter table)
 4. Relaciones recursivas
 5. Ciclos y validaciones(relaciones transitivas)
 
@@ -462,4 +450,375 @@ Su correcta identificación y uso ayuda a construir **modelos conceptuales más 
 
 ---
 
-¿Quieres que te haga un ejemplo completo en texto (como un mini diagrama ER con supertipo, subtipos y una relación recursiva) para que veas cómo se representan todos estos conceptos juntos?
+TAREA: aprender sql
+
+
+Atomicidad: Hace referencia a dividir los datos en su valor atómico para ser almacenados, es decir, el menor valor en el que siguen teniendo sentido.
+
+Ejemplo: Los campos “Nombre_est” y “Apellido_est” de la tabla “ESTUDIANTE” descomponen el nombre completo de un estudiante en nombre y apellido, los cuales siguen teniendo sentido por sí mismo. Además, estos campos no pueden dividirse más, ya que no tendrían un sentido o significado claro.
+
+La integridad referencial se puede observar en la vista relaciones, como por ejemplo entre Ciudad y Pais, cada ciudad pertenece a un país; y depende de este, ya que pueden existir ciudades con el mismo código de distintos paises, por lo tanto el campo Id_Pais de Ciudad depende de Id_Pais de Pais.
+
+
+
+Reglas Prácticas para Tu Tarea
+✅ USA PK COMPUESTA cuando:
+Creas tabla intermedia para relación N:M
+
+La combinación de FK es naturalmente única
+
+No necesitas que otras tablas referencien esta PK
+
+Las FK no son excesivamente largas
+
+✅ USA PK SIMPLE cuando:
+La tabla representa una entidad con existencia propia
+
+Permites duplicados en la combinación de FK
+
+Otras tablas necesitan referenciar esta PK
+
+Las FK son muy largas o complejas
+
+✅ MANTÉN PK ORIGINAL cuando:
+Solo agregas FK a una tabla existente
+
+La tabla ya tiene una PK bien definida
+
+Estás en relación 1:N (no creas tabla nueva)
+
+---
+
+# **SQL Básico - Explicación para Principiantes**
+
+## **¿Qué es SQL?**
+SQL (Structured Query Language) es el lenguaje para comunicarte con bases de datos. Es como hablarle a la base de datos para que te dé información o guarde datos.
+
+---
+
+## **Los 4 Comandos Fundamentales (CRUD)**
+
+### **1. SELECT - Leer Datos (El más importante)**
+
+#### **Estructura básica:**
+```sql
+SELECT columnas 
+FROM tabla 
+WHERE condición;
+```
+
+#### **Ejemplos prácticos:**
+```sql
+-- Ver TODOS los clientes
+SELECT * FROM clientes;
+
+-- Ver solo nombres y emails
+SELECT nombre, email FROM clientes;
+
+-- Ver clientes de una ciudad específica
+SELECT nombre, telefono 
+FROM clientes 
+WHERE ciudad = 'Bogotá';
+
+-- Ordenar resultados
+SELECT * FROM productos 
+ORDER BY precio DESC;
+```
+
+### **2. INSERT - Agregar Datos**
+
+#### **Estructura:**
+```sql
+INSERT INTO tabla (columna1, columna2) 
+VALUES (valor1, valor2);
+```
+
+#### **Ejemplos:**
+```sql
+-- Agregar un nuevo cliente
+INSERT INTO clientes (nombre, email, ciudad) 
+VALUES ('María García', 'maria@email.com', 'Medellín');
+
+-- Agregar producto
+INSERT INTO productos (nombre, precio, stock) 
+VALUES ('Laptop', 1500000, 10);
+```
+
+### **3. UPDATE - Actualizar Datos**
+
+#### **Estructura:**
+```sql
+UPDATE tabla 
+SET columna = nuevo_valor 
+WHERE condición;
+```
+
+#### **Ejemplos:**
+```sql
+-- Cambiar el precio de un producto
+UPDATE productos 
+SET precio = 1600000 
+WHERE id = 5;
+
+-- Aumentar stock de todos los productos en 5 unidades
+UPDATE productos 
+SET stock = stock + 5;
+
+-- ⚠️ CUIDADO: Sin WHERE actualiza TODOS los registros
+```
+
+### **4. DELETE - Eliminar Datos**
+
+#### **Estructura:**
+```sql
+DELETE FROM tabla 
+WHERE condición;
+```
+
+#### **Ejemplos:**
+```sql
+-- Eliminar un cliente específico
+DELETE FROM clientes 
+WHERE id = 10;
+
+-- Eliminar productos sin stock
+DELETE FROM productos 
+WHERE stock = 0;
+
+-- ⚠️ CUIDADO EXTREMO: Esto borra TODO
+DELETE FROM productos;  -- ¡NO HACER!
+```
+
+---
+
+## **Cláusulas Esenciales con Analogías**
+
+### **WHERE - El Filtro**
+```sql
+-- Como buscar en un almacén:
+SELECT * FROM productos 
+WHERE precio < 100000;          -- Productos baratos
+
+SELECT * FROM clientes 
+WHERE ciudad = 'Bogotá';        -- Clientes de Bogotá
+
+SELECT * FROM pedidos 
+WHERE fecha >= '2024-01-01';    -- Pedidos de este año
+```
+
+### **ORDER BY - El Organizador**
+```sql
+-- Como ordenar una lista:
+SELECT * FROM productos 
+ORDER BY precio ASC;            -- Más baratos primero
+
+SELECT * FROM empleados 
+ORDER BY salario DESC;          -- Mejor pagados primero
+
+SELECT * FROM clientes 
+ORDER BY ciudad, nombre;        -- Por ciudad y luego por nombre
+```
+
+### **LIMIT - El Selector**
+```sql
+-- Como pedir "solo los primeros 3":
+SELECT * FROM productos 
+ORDER BY precio DESC 
+LIMIT 5;                        -- Los 5 productos más caros
+
+SELECT * FROM clientes 
+LIMIT 10;                       -- Solo 10 clientes
+```
+
+---
+
+## **Consultas con Múltiples Tablas (JOIN)**
+
+### **INNER JOIN - La Intersección**
+```sql
+-- Clientes que han hecho pedidos
+SELECT clientes.nombre, pedidos.fecha, pedidos.total
+FROM clientes
+INNER JOIN pedidos ON clientes.id = pedidos.cliente_id;
+```
+
+### **LEFT JOIN - Todo de la izquierda**
+```sql
+-- Todos los clientes, tengan o no pedidos
+SELECT clientes.nombre, pedidos.fecha
+FROM clientes
+LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id;
+```
+
+---
+
+## **Funciones Útiles**
+
+### **Funciones de Agregación:**
+```sql
+-- Contar
+SELECT COUNT(*) FROM clientes;                    -- Total clientes
+
+-- Sumar
+SELECT SUM(total) FROM pedidos;                   -- Total vendido
+
+-- Promedio
+SELECT AVG(precio) FROM productos;                -- Precio promedio
+
+-- Máximo y Mínimo
+SELECT MAX(precio), MIN(precio) FROM productos;   -- Producto más caro y más barato
+```
+
+### **GROUP BY - Agrupar Resultados**
+```sql
+-- Ventas por ciudad
+SELECT ciudad, COUNT(*) as total_clientes
+FROM clientes
+GROUP BY ciudad;
+
+-- Total vendido por cliente
+SELECT cliente_id, SUM(total) as total_gastado
+FROM pedidos
+GROUP BY cliente_id;
+```
+
+---
+
+## **Ejemplos del Mundo Real**
+
+### **Sistema de Tienda:**
+```sql
+-- 1. Productos más vendidos
+SELECT producto_id, COUNT(*) as veces_vendido
+FROM detalle_pedidos
+GROUP BY producto_id
+ORDER BY veces_vendido DESC
+LIMIT 10;
+
+-- 2. Clientes que más gastan
+SELECT c.nombre, SUM(p.total) as total_gastado
+FROM clientes c
+JOIN pedidos p ON c.id = p.cliente_id
+GROUP BY c.id, c.nombre
+ORDER BY total_gastado DESC
+LIMIT 5;
+
+-- 3. Productos que necesitan reposición
+SELECT nombre, stock
+FROM productos
+WHERE stock < 10;
+```
+
+### **Sistema de Biblioteca:**
+```sql
+-- Libros prestados actualmente
+SELECT l.titulo, c.nombre, p.fecha_prestamo
+FROM libros l
+JOIN prestamos p ON l.id = p.libro_id
+JOIN clientes c ON p.cliente_id = c.id
+WHERE p.fecha_devolucion IS NULL;
+
+-- Libros más populares
+SELECT l.titulo, COUNT(*) as veces_prestado
+FROM libros l
+JOIN prestamos p ON l.id = p.libro_id
+GROUP BY l.id, l.titulo
+ORDER BY veces_prestado DESC;
+```
+
+---
+
+## **Errores Comunes de Principiantes**
+
+### **❌ SIN WHERE en UPDATE/DELETE:**
+```sql
+-- ¡PELIGRO! Actualiza TODOS los registros
+UPDATE productos SET precio = 100000;  -- ❌
+DELETE FROM clientes;                  -- ❌
+
+-- ✅ SIEMPRE usar WHERE
+UPDATE productos SET precio = 100000 WHERE id = 5;  -- ✅
+DELETE FROM clientes WHERE id = 10;                 -- ✅
+```
+
+### **❌ Confundir = con LIKE:**
+```sql
+-- Para texto exacto
+SELECT * FROM clientes WHERE nombre = 'Juan';      -- ✅ Solo "Juan"
+
+-- Para búsqueda parcial  
+SELECT * FROM clientes WHERE nombre LIKE 'Juan%';  -- ✅ "Juan", "Juan Carlos"
+```
+
+### **❌ Olvidar comillas en texto:**
+```sql
+SELECT * FROM clientes WHERE nombre = Juan;        -- ❌ ERROR
+SELECT * FROM clientes WHERE nombre = 'Juan';      -- ✅ CORRECTO
+```
+
+---
+
+## **Tabla Resumen de Comandos Básicos**
+
+| Comando | Para Qué Sirve | Ejemplo |
+|---------|----------------|---------|
+| **SELECT** | Ver datos | `SELECT nombre FROM clientes;` |
+| **INSERT** | Agregar datos | `INSERT INTO clientes (nombre) VALUES ('Ana');` |
+| **UPDATE** | Modificar datos | `UPDATE clientes SET ciudad='Bogotá' WHERE id=1;` |
+| **DELETE** | Eliminar datos | `DELETE FROM clientes WHERE id=5;` |
+| **WHERE** | Filtrar resultados | `SELECT * FROM productos WHERE precio > 100000;` |
+| **ORDER BY** | Ordenar resultados | `SELECT * FROM clientes ORDER BY nombre;` |
+| **LIMIT** | Limitar resultados | `SELECT * FROM productos LIMIT 5;` |
+
+---
+
+## **Ejercicios para Practicar**
+
+### **Base de datos: EMPLEADOS**
+```sql
+-- 1. Ver todos los empleados
+SELECT * FROM empleados;
+
+-- 2. Empleados que ganan más de 2 millones
+SELECT nombre, salario FROM empleados WHERE salario > 2000000;
+
+-- 3. Empleados de departamento "Ventas"
+SELECT * FROM empleados WHERE departamento = 'Ventas';
+
+-- 4. Ordenar empleados por salario (mayor a menor)
+SELECT * FROM empleados ORDER BY salario DESC;
+
+-- 5. Los 3 empleados mejor pagados
+SELECT * FROM empleados ORDER BY salario DESC LIMIT 3;
+```
+
+---
+
+## **Consejos para Empezar**
+
+### **1. Empieza con SELECT:**
+- Primero domina cómo **leer** datos
+- Usa `WHERE` para filtrar
+- Usa `ORDER BY` para organizar
+
+### **2. Practica con datos reales:**
+- Crea una base de datos simple
+- Inserta tus propios datos
+- Haz preguntas y respóndelas con SQL
+
+### **3. Siempre prueba con SELECT antes de UPDATE/DELETE:**
+```sql
+-- ANTES de eliminar, verifica qué vas a eliminar
+SELECT * FROM clientes WHERE ciudad = 'Cartagena';  -- ✅ Primero
+DELETE FROM clientes WHERE ciudad = 'Cartagena';    -- ✅ Después
+```
+
+**Recuerda**: SQL es como aprender un nuevo idioma. Comienza con estas frases básicas y poco a poco formarás oraciones más complejas. ¡La práctica es clave! 🚀
+
+---
+
+Block (o página): unidad mínima de transferencia entre disco y memoria. Un DBMS lee/escribe en bloques (p. ej. 4 KB, 8 KB según motor). Los índices y datos se almacenan y acceden en bloques.
+
+Data file (archivo de datos): archivo físico en disco que contiene los bloques/páginas que almacenan las tablas, índices y demás estructuras. Un DBMS puede usar uno o varios data files para distribuir almacenamiento.
+
+Relación: el data file está formado por muchos bloques; operaciones I/O leen/escriben bloques desde el data file.
