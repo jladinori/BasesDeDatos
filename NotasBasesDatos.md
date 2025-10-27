@@ -191,6 +191,18 @@ Campos Multivariados = cuando un campo guarda varios valores en un mismo atribut
 
 Campos Redundantes = información repetida innecesariamente en varias tablas (ej. guardar el nombre de la ciudad en cada usuario en lugar de tener una tabla Ciudad).
 
+
+matriz varias entidades
+
+**¿A qué lado se dibuja la línea punteada o sólida?**
+
+Se dibuja del lado de la entidad cuya participación es opcional u obligatoria.
+Es decir:
+
+Si el empleado debe pertenecer a un departamento → línea sólida del lado de Empleado.
+
+Si el departamento puede existir sin empleados → línea punteada del lado de Departamento.
+
 ## Clase 8
 
 La extensión **CDM** en bases de datos se refiere comúnmente al Common Data Model (Modelo de Datos Común)
@@ -223,6 +235,98 @@ tarea: identificar todas las servidumbres o chazas que dominan en la universidad
 desarrolar base de datos para las maquinas y movibles de la universidad
 
 ## Clase 10
+
+🔹 1. MODELO CONCEPTUAL (CDM)
+
+📘 Qué es:
+
+Es el modelo más abstracto. Se centra en las entidades, atributos y relaciones del negocio, sin preocuparse por cómo se implementará en una base de datos real.
+
+
+💡 En PowerDesigner:
+
+Se crea con New → Conceptual Data Model (CDM).
+
+Usa entidades, atributos, relaciones (1:1, 1:N, M:N), cardinalidades y opcionalidad.
+
+🧩 Propósito:
+
+Entender y comunicar la estructura lógica del negocio con lenguaje visual (diagramas ER).
+
+No tiene tipos de datos ni restricciones físicas.
+
+
+✅ Ventajas:
+
+Fácil de entender por usuarios no técnicos.
+
+Detecta errores conceptuales antes de pasar a la parte técnica.
+
+Sirve como documentación funcional del sistema.
+
+
+---
+
+🔹 2. MODELO LÓGICO (LDM)
+
+📘 Qué es:
+
+Representa cómo se organizarán los datos en una base de datos relacional, pero aún sin atarse a un motor específico (ni Access, ni MySQL, etc.).
+
+Aquí las entidades se vuelven tablas y las relaciones se vuelven claves primarias y foráneas.
+
+
+🧩 Lo que contiene:
+
+Tablas, columnas, PK, FK, UK.
+
+Tipos de datos genéricos (por ejemplo, String, Integer, Date).
+
+Relaciones convertidas a claves foráneas.
+
+Normalización de estructuras.
+
+
+✅ Ventajas:
+
+Prepara el diseño para implementarlo en cualquier SGBD.
+
+Permite optimizar estructuras antes de definir detalles físicos.
+
+Mantiene independencia del sistema gestor.
+
+
+---
+
+🔹 3. MODELO FÍSICO (PDM)
+
+📘 Qué es:
+
+Es el modelo técnico real que define exactamente cómo se creará la base de datos en un SGBD específico (MySQL, Access, SQL Server, Oracle, PostgreSQL, etc.).
+
+Aquí el diseño ya está ajustado a las reglas y tipos de datos del motor elegido.
+
+
+🧩 Contiene:
+
+Tipos de datos específicos (INT, VARCHAR(50), DATE, FLOAT...).
+
+Índices, restricciones (CHECK, DEFAULT, NOT NULL), triggers, vistas.
+
+Propiedades de rendimiento (tamaño, relaciones en cascada, etc.).
+
+Código SQL autogenerado.
+
+
+✅ Ventajas:
+
+Se puede exportar directamente a SQL para crear la base de datos.
+
+Permite validar integridad, optimización y compatibilidad con el SGBD.
+
+Representa exactamente cómo funcionará la base de datos en la práctica.
+
+---
 
 **Base de Datos (BD)**
 Conjunto organizado de datos estructurados que se almacenan electrónicamente y se gestionan de forma eficiente.
