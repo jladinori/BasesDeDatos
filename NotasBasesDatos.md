@@ -926,3 +926,26 @@ Block (o página): unidad mínima de transferencia entre disco y memoria. Un DBM
 Data file (archivo de datos): archivo físico en disco que contiene los bloques/páginas que almacenan las tablas, índices y demás estructuras. Un DBMS puede usar uno o varios data files para distribuir almacenamiento.
 
 Relación: el data file está formado por muchos bloques; operaciones I/O leen/escriben bloques desde el data file.
+
+## Clase 13
+
+Repaso conceptos avanzados
+
+## Semana 10-1
+
+He diseñado una base de datos para rastrear/analizar datos históricos aeronáuticos. El objetivo principal de la base de datos es resolver el problema de calificar qué aerolíneas son mejores o peores en función de su puntualidad.
+Para ello, es necesario comparar el tiempo en un momento determinado del día con los vuelos entrantes y salientes en un aeropuerto concreto.
+Empecemos por lo más sencillo: diseñar la aplicación de introducción de datos para la información de las siguientes 7 entidades:
+- Registro meteorológico.
+- Estación meteorológica.
+- Ciudad.
+- Aeropuerto.
+- Aerolínea.
+- Ruta.
+- Aeronave.
+Recuerda que la base de datos ya está diseñada, por lo que en algún momento tendré que inicializarla en el servidor.
+
+
+
+## Semana 10.2
+
