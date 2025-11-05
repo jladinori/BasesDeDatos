@@ -947,5 +947,18 @@ Recuerda que la base de datos ya está diseñada, por lo que en algún momento t
 
 
 
-## Semana 10.2
+## Semana 10.2 (algebra relacional)
 
+distint no se repiten.
+all se repiten
+
+σ pone condiciones para atributos
+pi pone los atributos que no se repiten
+X producto cartesiano
+|x| producto natural = σ [r1.pk = r2.fk](R1XR2)
+
+## Semana 11.2
+base de datos
+conjunto de relaciones
+
+quede en pag 89
