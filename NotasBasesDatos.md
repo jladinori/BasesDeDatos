@@ -961,4 +961,31 @@ X producto cartesiano
 base de datos
 conjunto de relaciones
 
+## Semana 12.1 (division)
+
+operacion division
+El esquema resultante contiene los atributos de R que NO están en S
+
+π_A(R) - Proyectar R sobre los atributos que NO están en S
+π_A(R) × S - Producto cartesiano con S
+(π_A(R) × S) - R - Encontrar lo que "falta"
+π_A( (π_A(R) × S) - R ) - Proyectar lo que falta
+π_A(R) - π_A( (π_A(R) × S) - R ) - Resultado final
+
+
+-- σ_condición(R)        → SELECT * FROM R WHERE condición;
+-- π_a,b(R)              → SELECT a, b FROM R;
+-- R × S                 → SELECT * FROM R CROSS JOIN S;
+-- R ∪ S                 → SELECT * FROM R UNION SELECT * FROM S;
+-- R - S                 → SELECT * FROM R EXCEPT SELECT * FROM S;
+-- R ∩ S                 → SELECT * FROM R INTERSECT SELECT * FROM S;
+-- R ⋈ S                 → SELECT * FROM R NATURAL JOIN S;
+-- R ⋈_condición S       → SELECT * FROM R INNER JOIN S ON condición;
+-- R ÷ S                 → SELECT ... (con NOT EXISTS o GROUP BY);
+-- ρ_N(R)                → SELECT * FROM R AS N;
+
+## Semana 12.2 (SQL)
+
+
+
 quede en pag 89
